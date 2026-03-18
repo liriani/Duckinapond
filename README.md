@@ -21,8 +21,24 @@ npm run build
 ```
 The output will be in the `dist/` directory.
 
-## Deploying to GitHub Pages
+## Deploying to GitHub Pages (MANDATORY STEPS)
 
-The project is configured to be deployed from the `dist/` folder to a repository named `Duckinapond`.
-Ensure your `vite.config.js` has the correct `base` path for your repository.
-Currently, it is set to `/Duckinapond/` for production.
+To fix the `main.jsx:1 Failed to load module script` error, you MUST ensure you are serving the built files, not the source code.
+
+1. **Build and Push to `gh-pages` branch:**
+   Run:
+   ```bash
+   npm run deploy
+   ```
+   This will build the project and push only the `dist/` folder to a branch called `gh-pages` in your repository.
+
+2. **Configure GitHub Pages Settings:**
+   - Go to your repository on GitHub.
+   - Click on **Settings** -> **Pages**.
+   - Under **Build and deployment** -> **Branch**, select `gh-pages` and `/ (root)`.
+   - Click **Save**.
+
+### Why the MIME type error happens:
+Browsers cannot execute `.jsx` files. If you see an error about `main.jsx`, it means your GitHub Pages site is serving the root folder of your project (which contains the source `index.html` pointing to `main.jsx`). Following the steps above ensures you serve the *transformed* files from the `dist` folder.
+
+The project is now repository-name agnostic, so it will work regardless of whether your repo is named `DuckinaLake`, `Duckinapond`, or anything else.
