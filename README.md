@@ -23,6 +23,6 @@ The output will be in the `dist/` directory.
 
 ## Deploying to GitHub Pages
 
-The project is configured to be deployed from the `dist/` folder to a repository named `DuckinaLake`.
+The project is configured to be deployed from the `dist/` folder to a repository named `Duckinapond`.
 Ensure your `vite.config.js` has the correct `base` path for your repository.
-Currently, it is set to `/DuckinaLake/` for production.
+Currently, it is set to `/Duckinapond/` for production.
